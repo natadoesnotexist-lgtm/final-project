@@ -7,7 +7,8 @@ Explore Viking history, mythology, and legendary warriors through a Python-power
 * Python
 * Flask
 * HTML/CSS
-* JavaScript
+* SQLAlchemy
+* bootstrap
 
 ### Run
 
