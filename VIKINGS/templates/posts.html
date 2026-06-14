@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="text-light"><i class="bi bi-collection"></i> All Viking Sagas</h1>
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('create_post') }}" class="btn btn-warning"><i class="bi bi-plus-lg"></i> Write New Saga</a>
+    {% endif %}
+</div>
+
+{% if posts %}
+<div class="row">
+    {% for post in posts %}
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 glass-card">
+            {% if post.image_url %}
+                <img src="{{ post.image_url }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; object-fit: cover;">
+            {% else %}
+                <img src="https://via.placeholder.com/400x200?text=Viking+Saga" class="card-img-top" alt="Saga">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content[:120] }}…</p>
+                <a href="{{ url_for('view_post', post_id=post.id) }}" class="btn btn-outline-warning btn-sm">Read saga</a>
+            </div>
+            <div class="card-footer text-muted">
+                By <strong>{{ post.author.username }}</strong> • {{ post.created_at.strftime('%b %d, %Y') }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="glass text-center">
+    <p>No sagas yet. Be the first to <a href="{{ url_for('create_post') }}">write a Viking story</a>!</p>
+</div>
+{% endif %}
+{% endblock %}

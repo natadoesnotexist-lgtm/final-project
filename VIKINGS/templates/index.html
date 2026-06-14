@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="glass text-center">
+        <h1 class="display-4 fw-bold">⚔️ The Age of Vikings ⚔️</h1>
+        <p class="lead">Raiders, traders, explorers – discover the real Norse legacy.</p>
+        <a href="{{ url_for('posts') }}" class="btn btn-warning btn-lg mt-3">Read the Sagas</a>
+    </div>
+</section>
+
+{% if recent_posts %}
+<section class="mt-5">
+    <h2 class="text-center mb-4 text-light"><i class="bi bi-book"></i> Recent Viking Sagas</h2>
+    <div class="row">
+        {% for post in recent_posts %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 glass-card">
+                {% if post.image_url %}
+                    <img src="{{ post.image_url }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; object-fit: cover;">
+                {% else %}
+                    <img src="https://via.placeholder.com/400x200?text=Viking+Longship" class="card-img-top" alt="Viking image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.content[:150] }}...</p>
+                    <a href="{{ url_for('view_post', post_id=post.id) }}" class="btn btn-outline-warning">Read more</a>
+                </div>
+                <div class="card-footer text-muted">
+                    By {{ post.author.username }} • {{ post.created_at.strftime('%Y-%m-%d') }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="text-center mt-3">
+        <a href="{{ url_for('posts') }}" class="btn btn-outline-light">View all sagas →</a>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

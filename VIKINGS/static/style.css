@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    background-image: url("images/viking.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #1a1a2e;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+
+.glass, .glass-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.glass-card {
+    padding: 0;
+    overflow: hidden;
+    background: rgba(20, 20, 30, 0.85);
+}
+
+.glass-card .card-body {
+    background: transparent;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 200, 0, 0.6);
+}
+
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero .glass h1 {
+    color: #ffc107;
+    text-shadow: 2px 2px 8px black;
+}
+
+
+.btn-warning {
+    background-color: #e6a017;
+    border-color: #c97e00;
+    font-weight: bold;
+}
+.btn-warning:hover {
+    background-color: #c97e00;
+    border-color: #a56200;
+}
+.btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+.btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #000;
+}
+
+
+.navbar-dark {
+    background-color: #0a0f1c !important;
+    border-bottom: 2px solid #d4af37;
+}
+
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+}
+.form-control:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.5);
+}
+
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+
+.alert {
+    background: rgba(0, 0, 0, 0.85);
+    border-left: 5px solid #ffc107;
+    color: #ffeaae;
+}
